@@ -1,0 +1,109 @@
+package finebi;
+
+import java.nio.file.Paths;
+import java.util.List;
+
+/*
+ * ============================================================================
+ *  ElasticJob 集成示例（不参与编译，改名为 .java 后按需启用）
+ * ============================================================================
+ *
+ * 本文件演示如何把采集器挂到 ElasticJob 上。核心只有一句：调用 FineBiExportRunner。
+ * 采集逻辑全在 Python 侧，Java 只负责「到点触发 + 判断成败」，这样你不用为了
+ * ElasticJob 把取数逻辑再写一遍。
+ *
+ * 依赖（二选一，按你的 ElasticJob 版本）：
+ *
+ *   3.x（推荐，Java 8 可用，包名 org.apache.shardingsphere.elasticjob）：
+ *     <dependency>
+ *       <groupId>org.apache.shardingsphere.elasticjob</groupId>
+ *       <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
+ *       <version>3.0.4</version>
+ *     </dependency>
+ *
+ *   2.x（包名 com.dangdang.ddframe.job，方法签名略有差异，见文件末尾注释）
+ *
+ * 调度配置示例（Spring Boot，3.x）：
+ *
+ *   elasticjob:
+ *     jobs:
+ *       finebiCustomerDaily:
+ *         elasticJobClass: finebi.FineBiExportJob
+ *         cron: 0 30 8 * * ?
+ *         shardingTotalCount: 1
+ *         overwrite: true
+ *         jobParameter: 客户明细
+ *
+ * 注意：cron 已经交给 ElasticJob 管，配置 xlsx 里的 cron 列就只当注释看，
+ *       调用时务必带 --once，不要启动 Python 侧的常驻调度器（会双跑）。
+ * ============================================================================
+ */
+public class FineBiExportJob implements SimpleJob {
+
+    /** Python 解释器；Windows 上建议写绝对路径，避免 PATH 里是 Microsoft Store 的假 python。 */
+    private static final String PYTHON =
+            System.getProperty("finebi.python", "python");
+
+    /** 采集器目录（collector.py 所在目录）。 */
+    private static final String WORK_DIR =
+            System.getProperty("finebi.workDir", ".");
+
+    /** 配置文件。 */
+    private static final String CONFIG =
+            System.getProperty("finebi.config", "");
+
+    @Override
+    public void execute(ShardingContext context) {
+        // jobParameter 里写任务名，一个分片对应一个 FineBI 任务
+        String jobName = context.getJobParameter();
+
+        FineBiExportRunner runner = new FineBiExportRunner(
+                PYTHON,
+                Paths.get(WORK_DIR).toAbsolutePath().normalize(),
+                Paths.get(CONFIG.isEmpty()
+                        ? Paths.get(WORK_DIR).resolve("config.xlsx").toString()
+                        : CONFIG).toAbsolutePath());
+
+        try {
+            FineBiExportRunner.Result result = runner.runOnce(jobName);
+
+            // 把 Python 侧日志转进应用日志，方便在调度平台上看
+            System.out.println(result.getStderr());
+
+            if (!result.isOk()) {
+                // 抛异常 = 本次分片失败，ElasticJob 会按 failover / 重试策略处理
+                throw new IllegalStateException("FineBI 导出失败：" + result.describe());
+            }
+
+            List<String> files = result.getFiles();
+            System.out.println("FineBI 导出成功，产出 " + files.size() + " 个文件：");
+            for (String f : files) {
+                System.out.println("  " + f);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("FineBI 导出被中断", e);
+        } catch (Exception e) {
+            throw new IllegalStateException("FineBI 导出异常", e);
+        }
+    }
+}
+
+/*
+ * ---------------------------------------------------------------------------
+ * ElasticJob 2.x 的写法差异（如果你的项目还在 2.x）：
+ *
+ *   import com.dangdang.ddframe.job.api.ShardingContext;
+ *   import com.dangdang.ddframe.job.api.simple.SimpleJob;
+ *
+ *   public class FineBiExportJob implements SimpleJob {
+ *       @Override
+ *       public void execute(ShardingContext shardingContext) {
+ *           String jobName = shardingContext.getJobParameter();
+ *           ...
+ *       }
+ *   }
+ *
+ * 其余逻辑完全一致。
+ * ---------------------------------------------------------------------------
+ */

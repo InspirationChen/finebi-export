@@ -1,0 +1,19 @@
+# 生成产物与运行时缓存（不入库）
+out/
+logs/
+.cid_cache
+__pycache__/
+*.pyc
+.DS_Store
+
+# 真实配置（含内网地址与分享码）——入库的是 config.example.xlsx
+config.xlsx
+
+# Java 调度壳的构建产物
+java8/target/
+*.class
+*.jar
+
+# Windows 编辑器垃圾
+Thumbs.db
+desktop.ini

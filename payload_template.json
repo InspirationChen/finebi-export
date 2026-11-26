@@ -1,0 +1,1297 @@
+{
+  "explainConf": {
+    "fieldCombinationList": [
+      []
+    ]
+  },
+  "type": 4,
+  "name": "${\"alt\":\"__widget_name_id__\",\"name\":\"组件名称\"}",
+  "timeStamp": 1795501312706,
+  "tableName": [
+    "6d486a494fe24bf8b62cd10c7c999dae"
+  ],
+  "fields": [],
+  "widgetMeasures": [],
+  "injection": null,
+  "widgetModel": {
+    "type": 0
+  },
+  "settings": {
+    "nameStyleType": 1,
+    "titleHeight": 25,
+    "titleBackground": {
+      "type": "color",
+      "color": "",
+      "imageId": ""
+    },
+    "widgetBackground": {
+      "type": "color",
+      "color": "",
+      "imageId": "",
+      "borderSize": -1,
+      "borderRadius": -1,
+      "borderColor": ""
+    },
+    "gisBackground": {
+      "show": true,
+      "normal": true,
+      "layer": null,
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "enableWheelTitle": "开启滚轮缩放",
+      "disableWheelTitle": "关闭滚轮缩放"
+    },
+    "chartAttr": {},
+    "chartStyle": {
+      "legend": {
+        "enabled": true,
+        "fontStyle": {
+          "auto": true,
+          "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+          "fontSize": 12,
+          "fontBold": false,
+          "italic": false,
+          "fontColor": "",
+          "type": 0,
+          "bold": false,
+          "fontAlign": 0
+        },
+        "borderColor": "transparent",
+        "position": "bottom-center",
+        "titleEnabled": true,
+        "validMapping": null
+      },
+      "axis": {
+        "enabled": true,
+        "type": "solid",
+        "color": "",
+        "width": 1
+      },
+      "hGrid": {
+        "enabled": true,
+        "type": "dashed",
+        "color": "",
+        "width": 1
+      },
+      "vGrid": {
+        "enabled": true,
+        "type": "dashed",
+        "color": "",
+        "width": 1
+      },
+      "section": {
+        "enabled": true,
+        "type": "solid",
+        "color": "",
+        "width": 1
+      },
+      "background": {
+        "enabled": true
+      },
+      "adaptive": {
+        "enabled": true,
+        "type": "standard"
+      }
+    },
+    "tableAttr": {
+      "color": {
+        "all": {
+          "color": "",
+          "backgroundColor": "",
+          "dims": [],
+          "conditions": []
+        },
+        "31f9901297ed794f": {
+          "dims": [],
+          "color": "",
+          "backgroundColor": "",
+          "conditions": []
+        },
+        "a9196c1f144cae87": {
+          "dims": [],
+          "color": "",
+          "backgroundColor": "",
+          "conditions": []
+        },
+        "7d55c60e40adec34": {
+          "dims": [],
+          "color": "",
+          "backgroundColor": "",
+          "conditions": []
+        },
+        "b182a570b2566a63": {
+          "dims": [],
+          "color": "",
+          "backgroundColor": "",
+          "conditions": []
+        },
+        "c229251c8bb65393": {
+          "dims": [],
+          "color": "",
+          "backgroundColor": "",
+          "conditions": []
+        }
+      },
+      "shape": {
+        "all": {
+          "shape": -1,
+          "dims": [],
+          "conditionsList": [],
+          "color": ""
+        },
+        "a9196c1f144cae87": {
+          "shape": -1,
+          "color": "",
+          "dims": [],
+          "conditionsList": []
+        },
+        "c229251c8bb65393": {
+          "shape": -1,
+          "color": "",
+          "dims": [],
+          "conditionsList": []
+        },
+        "7d55c60e40adec34": {
+          "shape": -1,
+          "color": "",
+          "dims": [],
+          "conditionsList": []
+        },
+        "31f9901297ed794f": {
+          "shape": -1,
+          "color": "",
+          "dims": [],
+          "conditionsList": []
+        },
+        "b182a570b2566a63": {
+          "shape": -1,
+          "color": "",
+          "dims": [],
+          "conditionsList": []
+        }
+      },
+      "filterValue": {},
+      "equalDivideColumn": false
+    },
+    "tableStyle": {
+      "form": 1,
+      "style": 0,
+      "themeColor": null,
+      "metric": {
+        "show": true,
+        "position": 3,
+        "type": 2
+      },
+      "freezeDim": true,
+      "freezeNumbers": 1,
+      "showSequence": false,
+      "showRowInfo": true,
+      "headerTextWrapper": false,
+      "textWrapper": false,
+      "expandRowHeader": false,
+      "expandColHeader": false,
+      "showRowSum": true,
+      "showColSum": true,
+      "showChildRowSum": false,
+      "showChildColSum": false,
+      "rowPosition": "bottom",
+      "colPosition": "right",
+      "sumRowText": "",
+      "headerRowHeight": 32,
+      "rowHeight": 32,
+      "detailRowCounts": 100,
+      "rowCounts": 20,
+      "colCounts": 7,
+      "totalRows": 20000,
+      "font": {
+        "type": 1,
+        "header": {
+          "fontFamily": null,
+          "fontSize": null,
+          "bold": null,
+          "italic": null,
+          "underline": null,
+          "fontAlign": null,
+          "fontColor": null
+        },
+        "body": {
+          "fontFamily": null,
+          "fontSize": null,
+          "bold": null,
+          "italic": null,
+          "underline": null,
+          "dimFontAlign": null,
+          "tarFontAlign": null,
+          "fontColor": null
+        }
+      },
+      "sumRowInGroupText": "",
+      "sumColText": "",
+      "sumColInGroupText": "",
+      "rowSum": {
+        "font": {
+          "fontAlign": null,
+          "bold": true,
+          "italic": null,
+          "underline": null,
+          "fontColor": null,
+          "fontFamily": null,
+          "fontSize": null
+        },
+        "fontType": 1,
+        "background": ""
+      },
+      "colSum": {
+        "font": {
+          "fontAlign": null,
+          "bold": true,
+          "italic": null,
+          "underline": null,
+          "fontColor": null,
+          "fontFamily": null,
+          "fontSize": null
+        },
+        "fontType": 1,
+        "background": ""
+      },
+      "rowSumInGroup": {
+        "font": {
+          "fontAlign": null,
+          "bold": true,
+          "italic": null,
+          "underline": null,
+          "fontColor": null,
+          "fontFamily": null,
+          "fontSize": null
+        },
+        "fontType": 1,
+        "background": ""
+      },
+      "colSumInGroup": {
+        "font": {
+          "fontAlign": null,
+          "bold": true,
+          "italic": null,
+          "underline": null,
+          "fontColor": null,
+          "fontFamily": null,
+          "fontSize": null
+        },
+        "fontType": 1,
+        "background": ""
+      },
+      "showRowHeaderIcon": true,
+      "showColHeaderIcon": true,
+      "showTitle": false,
+      "transmitLinkages": false
+    },
+    "transmitLinkages": true,
+    "chartInitState": {
+      "mapZoomDisabled": false
+    },
+    "innerGap": {
+      "topGap": -1,
+      "bottomGap": -1,
+      "leftGap": -1,
+      "rightGap": -1
+    }
+  },
+  "view": {
+    "10000": [
+      "44a7323c80805c18",
+      "b12508bfc0644b81",
+      "2248df8db8a969ad",
+      "b464012c1f128d0a",
+      "b83ee067f5c5e5b7",
+      "7da078040960d2cf",
+      "31f9901297ed794f",
+      "a9196c1f144cae87",
+      "7d55c60e40adec34",
+      "b182a570b2566a63",
+      "c229251c8bb65393"
+    ],
+    "20000": [],
+    "30000": []
+  },
+  "viewAttr": {
+    "10000": {
+      "type": 1,
+      "left": {
+        "reversed": false,
+        "log": false,
+        "sharedDomain": true
+      },
+      "right": {
+        "reversed": false,
+        "log": false,
+        "sharedDomain": true
+      },
+      "size": 0
+    },
+    "20000": {
+      "type": 1,
+      "size": 0
+    },
+    "30000": {
+      "type": 1,
+      "left": {
+        "reversed": false,
+        "log": false,
+        "sharedDomain": true
+      },
+      "right": {
+        "reversed": false,
+        "log": false,
+        "sharedDomain": true
+      },
+      "size": 0
+    }
+  },
+  "dimensions": {
+    "44a7323c80805c18": {
+      "name": "客户号",
+      "type": 1,
+      "notShowNull": false,
+      "id": "44a7323c80805c18",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][53f7]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "b12508bfc0644b81": {
+      "name": "客户姓名",
+      "type": 1,
+      "notShowNull": false,
+      "id": "b12508bfc0644b81",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][59d3][540d]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "2248df8db8a969ad": {
+      "name": "身份证号",
+      "type": 1,
+      "notShowNull": false,
+      "id": "2248df8db8a969ad",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[8eab][4efd][8bc1][53f7]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "b464012c1f128d0a": {
+      "name": "性别",
+      "type": 1,
+      "notShowNull": false,
+      "id": "b464012c1f128d0a",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[6027][522b]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "b83ee067f5c5e5b7": {
+      "name": "住址",
+      "type": 1,
+      "notShowNull": false,
+      "id": "b83ee067f5c5e5b7",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[4f4f][5740]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "7da078040960d2cf": {
+      "name": "资产配置标签",
+      "type": 1,
+      "notShowNull": false,
+      "id": "7da078040960d2cf",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[8d44][4ea7][914d][7f6e][6807][7b7e]",
+      "toCountType": 0,
+      "group": {
+        "type": 11
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": false,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "31f9901297ed794f": {
+      "name": "AUM（百万）",
+      "type": 2,
+      "notShowNull": false,
+      "id": "31f9901297ed794f",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_AUM[ff08][767e][4e07][ff09]",
+      "toCountType": 0,
+      "group": {
+        "type": 3
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": true,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "a9196c1f144cae87": {
+      "name": "财富产品持有余额（万元）",
+      "type": 2,
+      "notShowNull": false,
+      "id": "a9196c1f144cae87",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[8d22][5bcc][4ea7][54c1][6301][6709][4f59][989d][ff08][4e07][5143][ff09]",
+      "toCountType": 0,
+      "group": {
+        "type": 3
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": true,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "7d55c60e40adec34": {
+      "name": "储蓄余额（万元）",
+      "type": 2,
+      "notShowNull": false,
+      "id": "7d55c60e40adec34",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[50a8][84c4][4f59][989d][ff08][4e07][5143][ff09]",
+      "toCountType": 0,
+      "group": {
+        "type": 3
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": true,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "b182a570b2566a63": {
+      "name": "年龄",
+      "type": 2,
+      "notShowNull": false,
+      "id": "b182a570b2566a63",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[5e74][9f84]",
+      "toCountType": 0,
+      "group": {
+        "type": 3
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": true,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    },
+    "c229251c8bb65393": {
+      "name": "手机号",
+      "type": 2,
+      "notShowNull": false,
+      "id": "c229251c8bb65393",
+      "fieldId": "6d486a494fe24bf8b62cd10c7c999dae_[624b][673a][53f7]",
+      "toCountType": 0,
+      "group": {
+        "type": 3
+      },
+      "calculation": {
+        "type": 0,
+        "value": 0
+      },
+      "settings": {
+        "trendLine": [],
+        "cordon": [],
+        "categoryAxis": {
+          "title": {
+            "displayed": false,
+            "modified": false
+          }
+        },
+        "valueAxis": {
+          "reversed": false,
+          "log": false,
+          "sharedDomain": true
+        },
+        "annotate": [],
+        "size": 0,
+        "stack": false,
+        "formatStyle": 1,
+        "formatDecimal": -1,
+        "numLevel": 1,
+        "showType": 0,
+        "numSeparators": true,
+        "showHeaderPercent": false,
+        "showSum": true,
+        "tableShape": {
+          "shape": -1,
+          "color": "",
+          "filters": []
+        },
+        "tableColor": {
+          "color": "",
+          "backgroundColor": "",
+          "filters": []
+        },
+        "unit": "",
+        "dateFormat": {},
+        "flash": [],
+        "imageData": []
+      },
+      "showMissingTime": false,
+      "metric": 0,
+      "counterDep": "TOTAL_ROWS",
+      "repeatCal": true,
+      "formatStyle": 0,
+      "formatDecimal": 0,
+      "numLevel": 0,
+      "numSeparators": false,
+      "used": true,
+      "drillDimensions": {}
+    }
+  },
+  "allData": true,
+  "drillOrder": [],
+  "resultFilter": [],
+  "dimensionGroups": {
+    "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][53f7]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][53f7]_11",
+      "dimensionIds": [
+        "44a7323c80805c18"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][59d3][540d]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[5ba2][6237][59d3][540d]_11",
+      "dimensionIds": [
+        "b12508bfc0644b81"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[8eab][4efd][8bc1][53f7]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[8eab][4efd][8bc1][53f7]_11",
+      "dimensionIds": [
+        "2248df8db8a969ad"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[6027][522b]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[6027][522b]_11",
+      "dimensionIds": [
+        "b464012c1f128d0a"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[4f4f][5740]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[4f4f][5740]_11",
+      "dimensionIds": [
+        "b83ee067f5c5e5b7"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[8d44][4ea7][914d][7f6e][6807][7b7e]_11": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[8d44][4ea7][914d][7f6e][6807][7b7e]_11",
+      "dimensionIds": [
+        "7da078040960d2cf"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_AUM[ff08][767e][4e07][ff09]_3_0": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_AUM[ff08][767e][4e07][ff09]_3_0",
+      "dimensionIds": [
+        "31f9901297ed794f"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[8d22][5bcc][4ea7][54c1][6301][6709][4f59][989d][ff08][4e07][5143][ff09]_3_0": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[8d22][5bcc][4ea7][54c1][6301][6709][4f59][989d][ff08][4e07][5143][ff09]_3_0",
+      "dimensionIds": [
+        "a9196c1f144cae87"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[50a8][84c4][4f59][989d][ff08][4e07][5143][ff09]_3_0": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[50a8][84c4][4f59][989d][ff08][4e07][5143][ff09]_3_0",
+      "dimensionIds": [
+        "7d55c60e40adec34"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[5e74][9f84]_3_0": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[5e74][9f84]_3_0",
+      "dimensionIds": [
+        "b182a570b2566a63"
+      ]
+    },
+    "6d486a494fe24bf8b62cd10c7c999dae_[624b][673a][53f7]_3_0": {
+      "group": "6d486a494fe24bf8b62cd10c7c999dae_[624b][673a][53f7]_3_0",
+      "dimensionIds": [
+        "c229251c8bb65393"
+      ]
+    }
+  },
+  "legendFilter": null,
+  "columnSize": [],
+  "regionColumnSize": [],
+  "equallyDivideColumn": false,
+  "uploadedImages": [],
+  "widgetParameters": [],
+  "manualPreview": false,
+  "queryInfo": {
+    "mobile": false,
+    "bounds": {
+      "left": 208.333,
+      "top": 0,
+      "width": 500,
+      "height": 214.806
+    },
+    "previewCalLimit": 1,
+    "userId": "b5f0c2ee-640f-4039-a4d4-918b55354898",
+    "userName": "root",
+    "sessionId": "e40e8957-7544-452f-a8d9-d0646338ffcd",
+    "subjectId": "56051501e2ee4f95883ee7b35f6a73a1",
+    "globalFilter": null,
+    "reportName": "仪表板",
+    "reportId": "e25f9b4ea10d4225877664ed9cc3df1e",
+    "title": "组件",
+    "widgetId": "cec7d646ec0c4d55a7f6ba7a7c72b09b",
+    "reportWidgetId": "59c0c4a1e9250e30"
+  },
+  "page": 1,
+  "realData": true,
+  "templateChartColorChange": false,
+  "detailSetting": false,
+  "tableWidth": 0,
+  "selectTable": "",
+  "mobile": false,
+  "showTitle": true,
+  "allowOverlap": false,
+  "openJump": true,
+  "wId": "59c0c4a1e9250e30",
+  "measures": [],
+  "addTime": 1795509832316,
+  "templateStyle": {
+    "id": "DEFAULT_LIGHT",
+    "theme": "bi-theme-default",
+    "widgetGap": 6,
+    "templateBackground": {
+      "type": "color",
+      "color": "#E8EAED",
+      "imageId": ""
+    },
+    "widgetBackground": {
+      "type": "color",
+      "color": "#FFFFFF",
+      "imageId": "",
+      "borderRadius": 0,
+      "borderSize": 0,
+      "borderColor": "#4B6082"
+    },
+    "titleBackground": {
+      "type": "color",
+      "color": "transparent",
+      "imageId": ""
+    },
+    "titleFont": {
+      "type": 2,
+      "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+      "fontSize": 14,
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "fontColor": "#091E40",
+      "fontAlign": 1
+    },
+    "chart": {
+      "chartColor": [
+        "#7093ee",
+        "#4b6082",
+        "#65bfb8",
+        "#2596a1",
+        "#f9b44f",
+        "#7a73c8",
+        "#e898a8",
+        "#e67e8d",
+        "#c7cc3c",
+        "#90ad71",
+        "#6e91b5",
+        "#72c9e5"
+      ],
+      "font": {
+        "type": 1,
+        "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+        "fontSize": 12,
+        "bold": false,
+        "italic": false,
+        "underline": false,
+        "fontColor": ""
+      },
+      "gradient": [
+        "#4FDEFF",
+        "#439DF7",
+        "#526EFA"
+      ]
+    },
+    "table": {
+      "tableStyle": 1,
+      "themeColor": "#6489D2",
+      "font": {
+        "type": 2,
+        "header": {
+          "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+          "fontSize": 12,
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "fontColor": "",
+          "fontAlign": 2
+        },
+        "body": {
+          "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+          "fontSize": 12,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "fontColor": "",
+          "dimFontAlign": 1,
+          "tarFontAlign": 3
+        }
+      }
+    },
+    "controlTheme": "",
+    "controlWidget": {
+      "titleBackground": {
+        "type": "color",
+        "color": "transparent",
+        "imageId": ""
+      },
+      "titleFont": {
+        "type": 2,
+        "fontFamily": "Avenir, Segoe UI, PingFangSC-Regular, \"Microsoft YaHei\"",
+        "fontSize": 14,
+        "bold": true,
+        "italic": false,
+        "underline": false,
+        "fontColor": "#091E40",
+        "fontAlign": 1
+      },
+      "widgetBackground": {
+        "type": "color",
+        "color": "#FFFFFF",
+        "imageId": "",
+        "borderRadius": 0,
+        "borderSize": 0,
+        "borderColor": "#4B6082"
+      }
+    },
+    "tabWidget": {
+      "defaultState": {
+        "color": "",
+        "backgroundColor": ""
+      },
+      "selectedState": {
+        "color": "",
+        "backgroundColor": ""
+      }
+    }
+  },
+  "filter": {
+    "filterType": 34,
+    "filterValue": []
+  },
+  "filterValues": []
+}

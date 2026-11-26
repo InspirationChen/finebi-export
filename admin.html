@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FineBI 采集管理</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #fff; --line: #e3e6ea; --tx: #26303a; --tx2: #6b7683;
+    --pri: #2563eb; --pri-d: #1d4fd8; --ok: #16a34a; --warn: #d97706; --err: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--tx);
+         font: 14px/1.55 "PingFang SC","Microsoft YaHei",sans-serif; }
+  header { background: var(--card); border-bottom: 1px solid var(--line);
+           padding: 12px 22px; display: flex; align-items: center; gap: 14px; }
+  header h1 { font-size: 17px; margin: 0; }
+  header .sub { color: var(--tx2); font-size: 12px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 16px 22px 40px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+            padding: 16px 18px; margin-top: 16px; }
+  h2 { font-size: 15px; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; }
+  h2 .cnt { color: var(--tx2); font-weight: normal; font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; }
+  th { color: var(--tx2); font-weight: 500; white-space: nowrap; background: #fafbfc; }
+  td input[type=text] { width: 100%; border: 1px solid transparent; background: transparent;
+         padding: 4px 6px; border-radius: 5px; font: inherit; color: var(--tx); }
+  td input[type=text]:hover { border-color: var(--line); background: #fff; }
+  td input[type=text]:focus { outline: none; border-color: var(--pri); background: #fff; }
+  tr.err td input { color: var(--err); }
+  .btn { border: 1px solid var(--line); background: #fff; color: var(--tx);
+         padding: 6px 14px; border-radius: 7px; cursor: pointer; font: inherit; }
+  .btn:hover { border-color: #c6ccd4; background: #f6f8fb; }
+  .btn.primary { background: var(--pri); border-color: var(--pri); color: #fff; }
+  .btn.primary:hover { background: var(--pri-d); }
+  .btn.danger { color: var(--err); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .toolbar .gap { flex: 1; }
+  select { font: inherit; padding: 5px 8px; border: 1px solid var(--line);
+           border-radius: 7px; background: #fff; color: var(--tx); }
+  pre { margin: 0; background: #10141b; color: #d7e0ea; font: 12px/1.6 ui-monospace,
+        "SF Mono", Consolas, monospace; padding: 12px 14px; border-radius: 8px;
+        height: 300px; overflow: auto; white-space: pre-wrap; word-break: break-all; }
+  .badge { display: inline-block; padding: 1px 9px; border-radius: 99px; font-size: 12px; }
+  .badge.ok { background: #e7f6ec; color: var(--ok); }
+  .badge.run { background: #e8effe; color: var(--pri); }
+  .badge.err { background: #fdeaea; color: var(--err); }
+  .badge.idle { background: #eef0f3; color: var(--tx2); }
+  .filegroup { margin-bottom: 10px; }
+  .filegroup .dir { color: var(--tx2); font-size: 12px; margin: 6px 0 4px; }
+  .filegroup a { display: inline-block; margin: 3px 8px 3px 0; padding: 4px 10px;
+         background: #f1f4f9; border: 1px solid var(--line); border-radius: 6px;
+         color: var(--pri); text-decoration: none; font-size: 12.5px; }
+  .filegroup a:hover { border-color: var(--pri); }
+  .toast { position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+           background: #1c2430; color: #fff; padding: 8px 18px; border-radius: 8px;
+           font-size: 13px; opacity: 0; transition: .25s; pointer-events: none; z-index: 9; }
+  .toast.show { opacity: .95; }
+  .mut { color: var(--tx2); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>FineBI 采集管理</h1>
+  <span class="sub" id="cfgPath"></span>
+  <span style="flex:1"></span>
+  <span id="runBadge" class="badge idle">空闲</span>
+</header>
+<main>
+
+<section>
+  <h2>任务配置 <span class="cnt" id="jobCnt"></span>
+    <span style="flex:1"></span>
+    <span class="mut">输出位置：输出目录/当天日期/任务名_组件名_yyyymmdd.csv</span>
+  </h2>
+  <div style="overflow-x:auto"><table id="jobTable">
+    <thead><tr>
+      <th style="width:56px">启用</th><th style="width:140px">任务名</th>
+      <th style="min-width:260px">分享链接</th><th style="width:130px">组件</th>
+      <th style="width:80px">输出方式</th><th style="width:88px">输出格式</th><th style="width:90px">输出目录</th>
+      <th style="width:150px">cron表达式</th><th style="width:80px">表样式</th>
+      <th style="width:150px">备注</th><th style="width:64px">下次运行</th><th></th>
+    </tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="toolbar" style="margin-top:12px">
+    <button class="btn" onclick="addRow()">＋ 添加任务</button>
+    <button class="btn primary" onclick="saveJobs()">保存配置</button>
+    <span class="mut" id="saveHint">改完记得保存；链接可带筛选参数（?性别=女）</span>
+  </div>
+</section>
+
+<section>
+  <h2>运行控制</h2>
+  <div class="toolbar">
+    <button class="btn primary" id="btnRunAll" onclick="runAll()">▶ 跑全部启用任务</button>
+    <select id="jobPick" onchange=""><option value="">选择单个任务…</option></select>
+    <button class="btn" id="btnRunOne" onclick="runOne()">跑这一个</button>
+    <button class="btn" id="btnCheck" onclick="runCheck()">环境自检</button>
+    <button class="btn danger" id="btnStop" onclick="stopRun()">终止</button>
+    <span class="gap"></span>
+    <label class="mut"><input type="checkbox" id="vVerbose"> 详细日志</label>
+    <label class="mut"><input type="checkbox" id="vDry"> 试跑（不取数）</label>
+  </div>
+  <div class="mut" id="schedInfo" style="margin-top:6px">调度器状态加载中…</div>
+</section>
+
+<section>
+  <h2>运行输出 <span class="cnt" id="runInfo"></span></h2>
+  <pre id="log">等待运行…</pre>
+</section>
+
+<section>
+  <h2>产出文件 <span class="cnt">out/ 目录，按日期文件夹归档</span>
+    <span style="flex:1"></span>
+    <button class="btn" onclick="loadFiles()">刷新</button>
+  </h2>
+  <div id="files" class="mut">加载中…</div>
+</section>
+
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(msg, ms=2200) {
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), ms);
+}
+async function api(path, body) {
+  const opt = body ? {method:"POST", headers:{"Content-Type":"application/json"},
+                      body: JSON.stringify(body)} : {};
+  const r = await fetch(path, opt);
+  const j = await r.json();
+  if (!j.ok && j.error) toast("⚠ " + j.error, 4000);
+  return j;
+}
+
+/* ---------------- 任务配置 ---------------- */
+const COLS = ["enabled","name","url","widgets","mode","fmt","outdir","cron","kind","remark"];
+let jobs = [];
+
+async function loadJobs() {
+  const j = await api("/api/jobs");
+  if (!j.ok) return;
+  jobs = j.jobs; renderJobs(); renderPick();
+  $("jobCnt").textContent = "共 " + jobs.length + " 个任务";
+}
+function renderJobs() {
+  const tb = $("jobTable").tBodies[0]; tb.innerHTML = "";
+  jobs.forEach((job, i) => {
+    const tr = document.createElement("tr");
+    if (job.error) tr.className = "err";
+    const cells = [
+      `<input type="checkbox" ${job.enabled ? "checked" : ""} onchange="setJob(${i},'enabled',this.checked)">`,
+      `<input type="text" value="${esc(job.name)}" onchange="setJob(${i},'name',this.value)">`,
+      `<input type="text" value="${esc(job.url)}" onchange="setJob(${i},'url',this.value)" title="点击看完整链接">`,
+      `<input type="text" value="${esc(job.widgets)}" onchange="setJob(${i},'widgets',this.value)" title="留空=全部表格组件">`,
+      `<input type="text" value="${esc(job.mode)}" onchange="setJob(${i},'mode',this.value)" title="留空/多文件=每组件一个文件；单文件=合成一个">`,
+      `<select onchange="setJob(${i},'fmt',this.value)" title="csv 无行数上限（默认）；xlsx 保留合并单元格与多级表头">
+         <option value="" ${!job.fmt ? "selected" : ""}>默认 (csv)</option>
+         <option value="csv" ${job.fmt === "csv" ? "selected" : ""}>csv</option>
+         <option value="xlsx" ${job.fmt === "xlsx" ? "selected" : ""}>xlsx</option>
+       </select>`,
+      `<input type="text" value="${esc(job.outdir)}" onchange="setJob(${i},'outdir',this.value)">`,
+      `<input type="text" value="${esc(job.cron)}" onchange="setJob(${i},'cron',this.value)" title="30 8 * * * = 每天 8:30">`,
+      `<input type="text" value="${esc(job.kind)}" onchange="setJob(${i},'kind',this.value)" title="留空=自动；可填 明细表/分组表/交叉表">`,
+      `<input type="text" value="${esc(job.remark)}" onchange="setJob(${i},'remark',this.value)">`,
+      `<span class="mut">${esc(job.nextRun || "-")}</span>`,
+      `<button class="btn danger" onclick="delRow(${i})">删</button>`
+    ];
+    if (job.error) cells.push(`<span class="badge err" title="${esc(job.error)}" style="grid">!</span>`);
+    tr.innerHTML = cells.map(c => `<td>${c}</td>`).join("");
+    tb.appendChild(tr);
+  });
+}
+function setJob(i, k, v) { jobs[i][k] = v; }
+function addRow() {
+  jobs.push({enabled:true, name:"新任务", url:"", widgets:"", mode:"", fmt:"", outdir:"out",
+             filename:"", cron:"30 8 * * *", remark:"", kind:"", groups:"", nextRun:"", error:""});
+  renderJobs();
+}
+function delRow(i) { if (confirm("删除任务「" + jobs[i].name + "」？")) { jobs.splice(i,1); renderJobs(); renderPick(); } }
+async function saveJobs() {
+  const j = await api("/api/save", {rows: jobs});
+  if (j.ok) { jobs = j.jobs; renderJobs(); renderPick(); toast("✓ 配置已保存"); }
+}
+function renderPick() {
+  const sel = $("jobPick"); sel.innerHTML = '<option value="">选择单个任务…</option>';
+  jobs.forEach(job => {
+    const o = document.createElement("option"); o.value = job.name;
+    o.textContent = job.name + (job.enabled ? "" : "（已停用）");
+    sel.appendChild(o);
+  });
+}
+
+/* ---------------- 运行 ---------------- */
+let polling = null;
+async function runAll() { const j = await api("/api/run", {verbose: $("vVerbose").checked, dryRun: $("vDry").checked}); if (j.ok) { toast("已开始：" + j.label); poll(); } }
+async function runOne() {
+  const name = $("jobPick").value;
+  if (!name) return toast("先在下拉框选一个任务");
+  const j = await api("/api/run", {job: name, verbose: $("vVerbose").checked, dryRun: $("vDry").checked});
+  if (j.ok) { toast("已开始：" + name); poll(); }
+}
+async function runCheck() { const j = await api("/api/check", {}); if (j.ok) { toast("自检已开始"); poll(); } }
+async function stopRun() { await api("/api/stop", {}); }
+
+function poll() {
+  clearInterval(polling); polling = setInterval(refreshStatus, 1500); refreshStatus();
+}
+let lastLineCount = 0;
+async function refreshStatus() {
+  const s = await api("/api/status");
+  if (!s.ok) return;
+  // 调度器一行：开关状态 + 待跑队列 + 最近几次 cron 自动触发
+  if (s.scheduler) {
+    const rec = (s.scheduler.recent || []).slice(0, 3).map(r =>
+      r.time.slice(11, 16) + " " + esc(r.job) +
+      (r.exitcode === 0 ? " ✓" : "（code " + r.exitcode + "）")).join("；");
+    $("schedInfo").textContent = "cron 自动调度：" + (s.scheduler.on ? "开" : "关")
+      + ((s.scheduler.queue || []).length ? " · 待跑：" + s.scheduler.queue.map(esc).join("、") : "")
+      + (rec ? " · 最近自动：" + rec : "");
+  }
+  const b = $("runBadge");
+  if (s.running) {
+    b.className = "badge run"; b.textContent = "运行中：" + s.label;
+    $("runInfo").textContent = "开始于 " + (s.started || "");
+    if (!polling) poll();
+  } else {
+    b.className = s.exitcode === 0 ? "badge ok" : (s.exitcode == null ? "badge idle" : "badge err");
+    b.textContent = s.exitcode == null ? "空闲" : (s.exitcode === 0 ? "完成 ✓" : "结束（code " + s.exitcode + "）");
+    if (s.finished) $("runInfo").textContent = (s.started||"") + " → " + s.finished;
+    clearInterval(polling); polling = null;
+    if (s.report) showReport(s.report);
+  }
+  // 日志只追加新增行，避免滚动条跳回顶部
+  const pre = $("log");
+  if (s.lines.length !== lastLineCount) {
+    const added = s.lines.slice(lastLineCount);
+    lastLineCount = s.lines.length;
+    const stick = pre.scrollHeight - pre.scrollTop - pre.clientHeight < 40;
+    pre.textContent = s.lines.join("\n");
+    if (stick) pre.scrollTop = pre.scrollHeight;
+  }
+}
+function showReport(rep) {
+  const ok = (rep.results || []).filter(r => r.ok);
+  const bad = (rep.results || []).filter(r => !r.ok);
+  const rows = ok.map(r => `✓ ${esc(r.task)}  ${r.rows} 行  ${r.seconds}s  ${(r.files||[]).map(f => esc(f.split(/[\\/]/).pop())).join("、")}`)
+    .concat(bad.map(r => `× ${esc(r.task)}  ${esc(r.error)}`));
+  toast(rep.failed ? `结束：成功 ${ok.length}，失败 ${bad.length}（看输出）` : `✓ 全部完成：${ok.length} 个任务`, 5000);
+  if (rep.failed) pre_warn(rows.join("\n"));
+  loadFiles();
+}
+function pre_warn(txt) { const pre = $("log"); pre.textContent += "\n\n===== 汇总 =====\n" + txt; }
+
+/* ---------------- 产出文件 ---------------- */
+async function loadFiles() {
+  const j = await api("/api/files");
+  if (!j.ok) return;
+  const el = $("files");
+  if (!j.groups.length) { el.textContent = "out/ 下还没有产出文件"; return; }
+  el.innerHTML = "";
+  j.groups.forEach(g => {
+    const d = document.createElement("div"); d.className = "filegroup";
+    const total = g.files.reduce((a, f) => a + f.size, 0);
+    d.innerHTML = `<div class="dir">📁 ${esc(g.folder || "(根目录)")}  ·  ${g.files.length} 个文件  ·  ${(total/1048576).toFixed(1)} MB</div>` +
+      g.files.map(f => `<a href="/download?f=${encodeURIComponent(f.path)}" download>${esc(f.name)} <span class="mut">${(f.size/1024).toFixed(0)}KB · ${esc(f.mtime)}</span></a>`).join("");
+    el.appendChild(d);
+  });
+}
+
+/* ---------------- 启动 ---------------- */
+loadJobs(); loadFiles(); refreshStatus();
+setInterval(() => { if (!polling) refreshStatus(); }, 4000);
+</script>
+</body>
+</html>
